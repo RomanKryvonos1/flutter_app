@@ -206,13 +206,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "flutter_pp",
+      "name": "flutter_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-01-14T01:35:31.794716Z",
+  "generated": "2024-01-14T19:55:40.575030Z",
   "generator": "pub",
   "generatorVersion": "3.2.4"
 }
