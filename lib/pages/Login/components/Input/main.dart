@@ -5,7 +5,7 @@ class InputField extends StatefulWidget {
   final String hintText;
   final bool obscureText;
 
-  const InputField(
+  InputField(
       {super.key,
       required this.icon,
       required this.hintText,
@@ -33,53 +33,64 @@ class _InputState extends State<InputField> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(35, 0, 35, 0),
       child: Theme(
-          data: ThemeData(
-              textSelectionTheme:
-                  TextSelectionThemeData(selectionColor: Colors.grey)),
-          child: TextField(
-            cursorColor: Colors.white,
-            obscureText: obscureText,
-            decoration: InputDecoration(
-                enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 1.0,
-                  ),
+        data: ThemeData(
+            textSelectionTheme:
+                TextSelectionThemeData(selectionColor: Colors.grey)),
+        child: TextFormField(
+          onChanged: (value) {
+            print(widget.hintText + ': ' + value);
+          },
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Do not forget to fill me out ';
+            } else {
+              return null;
+            }
+          },
+          cursorColor: Colors.white,
+          obscureText: obscureText,
+          decoration: InputDecoration(
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.white,
+                  width: 1.0,
                 ),
-                focusedBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 1.0,
-                  ),
+              ),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.white,
+                  width: 1.0,
                 ),
-                prefixIconConstraints: BoxConstraints(minWidth: 18.0),
-                prefixIcon: Container(
-                    margin: EdgeInsets.only(right: 8.0),
-                    child: Icon(
-                      widget.icon,
+              ),
+              prefixIconConstraints: BoxConstraints(minWidth: 18.0),
+              prefixIcon: Container(
+                  margin: EdgeInsets.only(right: 8.0),
+                  child: Icon(
+                    widget.icon,
+                    color: Colors.white,
+                  )),
+              hintText: widget.hintText,
+              hintStyle: const TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300),
+              suffixIcon: widget.obscureText
+                  ? IconButton(
+                      icon: Icon(suffixIcon),
                       color: Colors.white,
-                    )),
-                hintText: widget.hintText,
-                hintStyle: const TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300),
-                suffixIcon: widget.obscureText
-                    ? IconButton(
-                        icon: Icon(suffixIcon),
-                        color: Colors.white,
-                        onPressed: () {
-                          setState(() {
-                            obscureText = !obscureText;
-                            suffixIcon = obscureText
-                                ? Icons.visibility
-                                : Icons.visibility_off;
-                          });
-                        },
-                      )
-                    : null),
-            style: const TextStyle(color: Colors.white),
-          )),
+                      onPressed: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                          suffixIcon = obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off;
+                        });
+                      },
+                    )
+                  : null),
+          style: const TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }

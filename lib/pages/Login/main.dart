@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/Login/components/Header/main.dart';
 import 'package:flutter_app/pages/Login/components/Input/main.dart';
+
 import 'components/Button/main.dart';
 import 'components/CheckBox/main.dart';
 
 class LoginPage extends StatefulWidget {
+  static final GlobalKey<FormState> passkey = GlobalKey<FormState>();
+  static final GlobalKey<FormState> emailkey = GlobalKey<FormState>();
+
   const LoginPage({super.key});
 
   @override
@@ -35,16 +39,22 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               HeaderIcon(icon: Icons.person_outline_rounded, radius: 50),
               Header(label: 'CUSTOMER LOGIN'),
-              InputField(
-                hintText: 'Email',
-                icon: Icons.email,
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 25, top: 30),
+              Form(
+                key: LoginPage.emailkey,
                 child: InputField(
-                  hintText: 'Password',
-                  icon: Icons.lock,
-                  obscureText: true,
+                  hintText: 'Email',
+                  icon: Icons.email,
+                ),
+              ),
+              Form(
+                key: LoginPage.passkey,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 25, top: 30),
+                  child: InputField(
+                    hintText: 'Password',
+                    icon: Icons.lock,
+                    obscureText: true,
+                  ),
                 ),
               ),
               Padding(
