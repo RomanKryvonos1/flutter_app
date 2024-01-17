@@ -8,6 +8,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    print(index);
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   final BoxDecoration decoration = BoxDecoration(
     gradient: LinearGradient(
@@ -20,18 +29,39 @@ class _HomePageState extends State<HomePage> {
   );
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
+      appBar: AppBar(
+        backgroundColor: Colors.blue[300],
+      ),
+      body: Center(
+          child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: decoration,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [],
         ),
-        body: Center(
-            child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: decoration,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [],
+      )),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue[300],
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        )));
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.white,
+        onTap: _onItemTapped,
+      ),
+    );
   }
 }
