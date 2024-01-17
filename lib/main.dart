@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/Login/main.dart';
+
+import 'pages/Login/main.dart';
 
 void main() {
-}
   runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
