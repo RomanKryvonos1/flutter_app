@@ -5,9 +5,18 @@ import 'package:flutter_app/pages/Login/components/Input/main.dart';
 import 'components/Button/main.dart';
 import 'components/CheckBox/main.dart';
 
+const BoxDecoration decoration = BoxDecoration(
+  gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: <Color>[
+        Color.fromARGB(255, 137, 192, 237),
+        Color.fromARGB(255, 26, 26, 150)
+      ]),
+);
+
 class LoginPage extends StatefulWidget {
-  static final GlobalKey<FormState> passkey = GlobalKey<FormState>();
-  static final GlobalKey<FormState> emailkey = GlobalKey<FormState>();
+  static final GlobalKey<FormState> thekey = GlobalKey<FormState>();
 
   const LoginPage({super.key});
 
@@ -18,16 +27,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    const BoxDecoration decoration = BoxDecoration(
-      gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[
-            Color.fromARGB(255, 137, 192, 237),
-            Color.fromARGB(255, 26, 26, 150)
-          ]),
-    );
-
     return Scaffold(
       body: Center(
         child: Container(
@@ -40,21 +39,19 @@ class _LoginPageState extends State<LoginPage> {
               HeaderIcon(icon: Icons.person_outline_rounded, radius: 50),
               Header(label: 'CUSTOMER LOGIN'),
               Form(
-                key: LoginPage.emailkey,
-                child: InputField(
-                  hintText: 'Email',
-                  icon: Icons.email,
-                ),
-              ),
-              Form(
-                key: LoginPage.passkey,
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 25, top: 30),
-                  child: InputField(
-                    hintText: 'Password',
-                    icon: Icons.lock,
-                    obscureText: true,
-                  ),
+                key: LoginPage.thekey,
+                child: Column(
+                  children: [
+                    InputField(
+                      hintText: 'Email',
+                      icon: Icons.email,
+                    ),
+                    InputField(
+                      hintText: 'Password',
+                      icon: Icons.lock,
+                      obscureText: true,
+                    ),
+                  ],
                 ),
               ),
               Padding(
