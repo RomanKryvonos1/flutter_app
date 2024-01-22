@@ -24,13 +24,22 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         drawer: DarwerMain(),
         appBar: AppBar(
+          actions: [
+            SizedBox(
+                height: 50.0,
+                width: 50.0,
+                child: IconButton(
+                  icon: Icon(Icons.person),
+                  onPressed: () {},
+                ))
+          ],
           title: Text(
             'Home Page',
             style: TextStyle(
                 color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
           ),
           iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Colors.blue,
+          backgroundColor: Color.fromRGBO(18, 57, 128, 1),
         ),
         body: Center(
             child: Container(

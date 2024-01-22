@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/HomePage/main.dart';
 import 'package:flutter_app/pages/Login/main.dart';
-import 'package:flutter_app/pages/SettingsPage/main.dart';
+import 'package:flutter_app/pages/Settings/main.dart';
 
 class DarwerMain extends StatefulWidget {
   const DarwerMain({super.key});
@@ -26,7 +26,7 @@ class _DarwerMainState extends State<DarwerMain> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromRGBO(18, 57, 128, 1),
       child: Column(children: [
         SizedBox(
           height: 150,

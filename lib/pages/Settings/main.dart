@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/SettingsPage/components/utils/settingsTile.dart';
+import 'package:flutter_app/pages/Settings/components/Button/main.dart';
 
 import '../drawer.dart';
 
@@ -31,17 +31,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
           ),
           iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Colors.blue,
+          backgroundColor: Color.fromRGBO(18, 57, 128, 1),
         ),
         body: Center(
             child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: decoration,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [SettingsTile(label: 'Profile')],
-          ),
+          child: Button(),
         )));
   }
 }
