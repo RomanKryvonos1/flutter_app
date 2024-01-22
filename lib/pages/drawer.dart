@@ -40,6 +40,9 @@ class _DarwerMainState extends State<DarwerMain> {
             ),
           ),
         ),
+        Container(
+          height: 25,
+        ),
         ListTile(
             title: Text('Home', style: txtStyle),
             leading: Icon(Icons.home),
