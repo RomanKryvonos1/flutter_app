@@ -15,7 +15,7 @@ class _ButtonState extends State<Button> {
     return ListView(
       children: [
         SettingsTile(
-          label: 'Profil',
+          label: 'Profile',
           icon: Icons.person,
         ),
         SettingsTile(
