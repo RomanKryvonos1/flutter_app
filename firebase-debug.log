@@ -1,0 +1,22 @@
+[debug] [2024-02-17T01:42:07.704Z] ----------------------------------------------------------------------
+[debug] [2024-02-17T01:42:07.706Z] Command:       /usr/local/bin/firebase /Users/romank/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase apps:create ios flutter_app (macos) --bundle-id=com.example.flutterPp.RunnerTests --json --project=messageapp-dbdbc
+[debug] [2024-02-17T01:42:07.707Z] CLI Version:   13.3.0
+[debug] [2024-02-17T01:42:07.707Z] Platform:      darwin
+[debug] [2024-02-17T01:42:07.707Z] Node Version:  v18.5.0
+[debug] [2024-02-17T01:42:07.708Z] Time:          Fri Feb 16 2024 18:42:07 GMT-0700 (Mountain Standard Time)
+[debug] [2024-02-17T01:42:07.708Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-17T01:42:07.716Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-17T01:42:07.718Z] > authorizing via signed-in user (krivonosroman1@gmail.com)
+[info] Create your IOS app in project messageapp-dbdbc:
+[debug] [2024-02-17T01:42:07.721Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/messageapp-dbdbc/iosApps [none]
+[debug] [2024-02-17T01:42:07.722Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/messageapp-dbdbc/iosApps {"displayName":"flutter_app (macos)","bundleId":"com.example.flutterPp.RunnerTests"}
+[debug] [2024-02-17T01:42:08.202Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/messageapp-dbdbc/iosApps 409
+[debug] [2024-02-17T01:42:08.204Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/messageapp-dbdbc/iosApps {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2024-02-17T01:42:08.205Z] HTTP Error: 409, Requested entity already exists
+[debug] [2024-02-17T01:42:08.385Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at responseToError (/Users/romank/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/Users/romank/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/apiv2.js:292:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create iOS app for project messageapp-dbdbc. See firebase-debug.log for more info.
