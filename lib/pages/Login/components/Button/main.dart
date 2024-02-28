@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/HomePage/main.dart';
 import 'package:flutter_app/pages/Login/main.dart';
-import 'package:flutter_app/pages/homePage.dart';
 
 class Button extends StatefulWidget {
   final String label;
@@ -33,10 +33,11 @@ class _ButtonState extends State<Button> {
             backgroundColor: Color.fromRGBO(18, 57, 128, 1),
           ),
           onPressed: () {
-            if (LoginPage.emailkey.currentState!.validate() &&
-                LoginPage.passkey.currentState!.validate()) {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+            if (LoginPage.thekey.currentState!.validate()) {
+              Navigator.pushReplacement(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (BuildContext context) => HomePage()));
             }
           },
           child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/Login/components/Input/utils/validation.dart';
 
 class InputField extends StatefulWidget {
   final IconData icon;
@@ -37,16 +38,7 @@ class _InputState extends State<InputField> {
             textSelectionTheme:
                 TextSelectionThemeData(selectionColor: Colors.grey)),
         child: TextFormField(
-          onChanged: (value) {
-            print(widget.hintText + ': ' + value);
-          },
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Do not forget to fill me out ';
-            } else {
-              return null;
-            }
-          },
+          validator: validator,
           cursorColor: Colors.white,
           obscureText: obscureText,
           decoration: InputDecoration(
