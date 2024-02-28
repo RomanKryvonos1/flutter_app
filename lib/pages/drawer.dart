@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/auth/auth_service.dart';
 import 'package:flutter_app/pages/HomePage/main.dart';
+import 'package:flutter_app/pages/Login/main.dart';
 import 'package:flutter_app/pages/Settings/main.dart';
 import 'package:provider/provider.dart';
 
@@ -25,9 +26,10 @@ class _DarwerMainState extends State<DarwerMain> {
   }
 
   void signOut() {
-    final authService = Provider.of<AuthService>(context, listen: false);
-
-    authService.signOut();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
   }
 
   @override

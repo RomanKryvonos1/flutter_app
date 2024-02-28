@@ -5,13 +5,11 @@ class InputField extends StatefulWidget {
   final IconData icon;
   final String hintText;
   final bool obscureText;
-  final TextEditingController controller;
 
   InputField(
       {super.key,
       required this.icon,
       required this.hintText,
-      required this.controller,
       this.obscureText = false});
 
   @override
@@ -25,6 +23,7 @@ class _InputState extends State<InputField> {
   @override
   void initState() {
     super.initState();
+
     suffixIcon = Icons.visibility;
 
     obscureText = widget.obscureText;
@@ -39,7 +38,6 @@ class _InputState extends State<InputField> {
             textSelectionTheme:
                 TextSelectionThemeData(selectionColor: Colors.grey)),
         child: TextFormField(
-          controller: widget.controller,
           validator: validator,
           cursorColor: Colors.white,
           obscureText: obscureText,

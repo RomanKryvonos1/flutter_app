@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/ChatPages/components/Messages.dart';
 
+import '../drawer.dart';
+
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
 
@@ -16,8 +18,8 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.white,
-      endDrawer: new Drawer(
-        backgroundColor: Colors.white,
+      endDrawer: Drawer(
+        //backgroundColor: Colors.white,
       ),
       appBar: AppBar(
         bottom: PreferredSize(

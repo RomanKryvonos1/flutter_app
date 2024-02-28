@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/Login/main.dart';
 import 'package:flutter_app/pages/Settings/components/Button/main.dart';
 
 import '../drawer.dart';
@@ -18,8 +19,8 @@ class _SettingsPageState extends State<SettingsPage> {
         drawer: DarwerMain(),
         appBar: AppBar(
           title: Text(
-            'Settings Page',
-            style: TextStyle(
+            'Heelo'
+            ,style: TextStyle(
                 color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700),
           ),
           iconTheme: IconThemeData(color: Colors.black),
