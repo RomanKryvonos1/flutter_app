@@ -16,7 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        drawer: DarwerMain(),
+        drawer: MainDrawer(),
         appBar: AppBar(
           title: Text(
             'Heelo'

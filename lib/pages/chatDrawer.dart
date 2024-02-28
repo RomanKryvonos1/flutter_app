@@ -5,16 +5,16 @@ import 'package:flutter_app/pages/Login/main.dart';
 import 'package:flutter_app/pages/Settings/main.dart';
 import 'package:provider/provider.dart';
 
-class MainDrawer extends StatefulWidget {
-  const MainDrawer({super.key});
+class ChatDrawer extends StatefulWidget {
+  const ChatDrawer({super.key});
 
   @override
-  State<MainDrawer> createState() => _MainDrawerState();
+  State<ChatDrawer> createState() => _ChatDrawerState();
 }
 
-class _MainDrawerState extends State<MainDrawer> {
+class _ChatDrawerState extends State<ChatDrawer> {
   final TextStyle txtStyle =
-      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600);
+  TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600);
 
   goToSettings() {
     setState(() {

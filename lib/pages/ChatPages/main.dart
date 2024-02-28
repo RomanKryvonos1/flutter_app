@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/ChatPages/components/Messages.dart';
+import 'package:flutter_app/pages/chatDrawer.dart';
 
 import '../drawer.dart';
 
@@ -18,7 +19,7 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.white,
-      endDrawer: Drawer(
+      endDrawer: ChatDrawer(
         //backgroundColor: Colors.white,
       ),
       appBar: AppBar(
