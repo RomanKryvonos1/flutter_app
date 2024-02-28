@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/auth/auth_service.dart';
 import 'package:flutter_app/pages/Login/components/Header/main.dart';
 import 'package:flutter_app/pages/Login/components/Input/main.dart';
+import 'package:provider/provider.dart';
 
 import 'components/Button/main.dart';
 import 'components/CheckBox/main.dart';
@@ -17,7 +19,6 @@ const BoxDecoration decoration = BoxDecoration(
 
 class LoginPage extends StatefulWidget {
   static final GlobalKey<FormState> thekey = GlobalKey<FormState>();
-
   const LoginPage({super.key});
 
   @override
@@ -25,6 +26,37 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late IconData suffixIcon;
+  late bool obscureText = true;
+
+  @override
+  void initState() {
+    super.initState();
+    suffixIcon = Icons.visibility;
+
+    obscureText = obscureText;
+  }
+
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+
+  void singIn() async {
+    final authService = Provider.of<AuthService>(context, listen: false);
+
+    try {
+      await authService.signInWithEmailandPassword(
+          emailController.text, passController.text);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            e.toString(),
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +75,14 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     InputField(
-                      hintText: 'Email',
-                      icon: Icons.email,
-                    ),
+                        icon: Icons.mail,
+                        hintText: 'Email',
+                        controller: emailController),
                     InputField(
-                      hintText: 'Password',
-                      icon: Icons.lock,
-                      obscureText: true,
-                    ),
+                        icon: Icons.lock,
+                        hintText: 'Password',
+                        controller: passController,
+                        obscureText: true)
                   ],
                 ),
               ),
@@ -62,6 +94,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Button(
+                onPressed: () {
+                  if (LoginPage.thekey.currentState!.validate()) {
+                    singIn();
+                  }
+                },
                 label: 'LOGIN',
               ),
             ],
