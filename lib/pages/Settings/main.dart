@@ -12,33 +12,21 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   @override
-  final BoxDecoration decoration = BoxDecoration(
-    gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: <Color>[
-          Color.fromARGB(255, 137, 192, 237),
-          Color.fromARGB(255, 26, 26, 150)
-        ]),
-  );
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         drawer: DarwerMain(),
         appBar: AppBar(
           title: Text(
             'Settings Page',
             style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+                color: Colors.black, fontSize: 30, fontWeight: FontWeight.w700),
           ),
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Color.fromRGBO(18, 57, 128, 1),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white,
         ),
         body: Center(
-            child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: decoration,
           child: Button(),
-        )));
+        ));
   }
 }

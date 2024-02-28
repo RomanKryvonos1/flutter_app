@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/ChatPages/main.dart';
+import 'package:flutter_app/pages/HomePage/components/massagesTile.dart';
 
 import '../drawer.dart';
 
@@ -11,17 +13,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  final BoxDecoration decoration = BoxDecoration(
-    gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: <Color>[
-          Color.fromARGB(255, 137, 192, 237),
-          Color.fromARGB(255, 26, 26, 150)
-        ]),
-  );
+  IconData icon = Icons.person;
+
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         drawer: DarwerMain(),
         appBar: AppBar(
           actions: [
@@ -29,27 +25,45 @@ class _HomePageState extends State<HomePage> {
                 height: 50.0,
                 width: 50.0,
                 child: IconButton(
-                  icon: Icon(Icons.person),
+                  icon: Icon(Icons.person_add_alt_rounded),
                   onPressed: () {},
                 ))
           ],
-          title: Text(
-            'Home Page',
-            style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.telegram_outlined,
+                color: Colors.black,
+                size: 40,
+              ),
+              Text(
+                'Chats',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700),
+              ),
+            ],
           ),
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Color.fromRGBO(18, 57, 128, 1),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white,
         ),
         body: Center(
-            child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: decoration,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [],
+          child: ListView(
+            children: [
+              MassageTile(
+                icon: icon,
+                name: 'Roman Kryvonos',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChatPage()),
+                  );
+                },
+              ),
+            ],
           ),
-        )));
+        ));
   }
 }
